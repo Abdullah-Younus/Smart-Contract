@@ -5,10 +5,19 @@ import "hardhat/console.sol";
 
 contract Greeter {
     string private greeting;
+    uint256 storeData;
 
     constructor(string memory _greeting) {
         console.log("Deploying a Greeter with greeting:", _greeting);
         greeting = _greeting;
+    }
+
+    function set(uint256 x) public {
+        storeData = x;
+    }
+
+    function get() public view returns (uint256) {
+        return storeData;
     }
 
     function greet() public view returns (string memory) {
